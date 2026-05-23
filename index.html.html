@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kebijakan Privasi – SmartUQuiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b0f1a;
+      --surface: #111827;
+      --card: #1a2235;
+      --border: #2a3a55;
+      --accent: #4f8ef7;
+      --accent2: #a78bfa;
+      --green: #34d399;
+      --text: #e8edf7;
+      --muted: #8896b3;
+      --radius: 16px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* Background mesh */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 20% 10%, rgba(79,142,247,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 80% 80%, rgba(167,139,250,0.10) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(79,142,247,0.12);
+      border: 1px solid rgba(79,142,247,0.3);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 13px;
+      color: var(--accent);
+      font-family: 'Sora', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+    }
+
+    .badge::before { content: '🔐'; }
+
+    h1 {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.15;
+      background: linear-gradient(135deg, #fff 30%, var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .meta {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    .meta-item {
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .meta-item span { color: var(--text); font-weight: 500; }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 48px 0;
+    }
+
+    /* Section */
+    .section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    .section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .section:hover { border-color: rgba(79,142,247,0.4); }
+    .section:hover::before { opacity: 1; }
+
+    .section-number {
+      font-family: 'Sora', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-family: 'Sora', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    p { color: var(--muted); margin-bottom: 12px; font-size: 15px; }
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0 0;
+    }
+
+    ul li {
+      color: var(--muted);
+      font-size: 15px;
+      padding: 6px 0 6px 24px;
+      position: relative;
+      border-bottom: 1px solid rgba(42,58,85,0.5);
+    }
+
+    ul li:last-child { border-bottom: none; }
+
+    ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    strong { color: var(--text); font-weight: 600; }
+
+    /* Highlight box */
+    .highlight {
+      background: rgba(52,211,153,0.08);
+      border: 1px solid rgba(52,211,153,0.25);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-top: 16px;
+      color: var(--green);
+      font-size: 14px;
+    }
+
+    .highlight::before { content: '✓  '; font-weight: 700; }
+
+    /* Contact card */
+    .contact-card {
+      background: linear-gradient(135deg, rgba(79,142,247,0.1), rgba(167,139,250,0.1));
+      border: 1px solid rgba(79,142,247,0.3);
+      border-radius: var(--radius);
+      padding: 32px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .contact-card h3 {
+      font-family: 'Sora', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .contact-card p { font-size: 14px; }
+
+    .email-link {
+      display: inline-block;
+      margin-top: 12px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-family: 'Sora', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+
+    .email-link:hover { opacity: 0.85; }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer strong { color: var(--text); }
+
+    @media (max-width: 600px) {
+      .section { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="badge">Kebijakan Privasi</div>
+      <h1>SmartUQuiz</h1>
+      <p class="subtitle">
+        Aplikasi kuis edukasi interaktif untuk pelajar SD, SMP, dan SMA di Indonesia
+      </p>
+      <div class="meta">
+        <div class="meta-item">📅 Berlaku sejak: <span>1 Mei 2026</span></div>
+        <div class="meta-item">🔄 Terakhir diperbarui: <span>Mei 2026</span></div>
+        <div class="meta-item">🌐 Versi: <span>1.0</span></div>
+      </div>
+    </div>
+
+    <!-- Section 1 -->
+    <div class="section">
+      <div class="section-number">01</div>
+      <h2>Pendahuluan</h2>
+      <p>
+        SmartUQuiz ("kami", "aplikasi") berkomitmen untuk melindungi privasi pengguna, terutama pelajar yang menggunakan aplikasi ini. Kebijakan Privasi ini menjelaskan bagaimana kami mengumpulkan, menggunakan, dan melindungi informasi Anda saat menggunakan aplikasi SmartUQuiz.
+      </p>
+      <p>
+        Dengan menggunakan aplikasi ini, Anda menyetujui praktik yang dijelaskan dalam kebijakan ini. Jika Anda tidak menyetujui kebijakan ini, harap hentikan penggunaan aplikasi.
+      </p>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="section">
+      <div class="section-number">02</div>
+      <h2>Informasi yang Kami Kumpulkan</h2>
+      <p>Kami hanya mengumpulkan data yang diperlukan untuk menjalankan fitur aplikasi:</p>
+      <ul>
+        <li><strong>Data Akun:</strong> Nama pengguna, nomor telepon (untuk verifikasi via OTP), dan kata sandi yang dienkripsi</li>
+        <li><strong>Data Profil:</strong> Informasi yang Anda masukkan secara sukarela pada halaman profil</li>
+        <li><strong>Data Penggunaan:</strong> Kategori kuis yang dipilih (Matematika, IPA, IPS, Sejarah, Bahasa Indonesia, Bahasa Inggris), jenjang (SD/SMP/SMA), dan skor hasil kuis</li>
+        <li><strong>Data Teknis:</strong> Versi aplikasi dan informasi perangkat dasar untuk keperluan debugging</li>
+      </ul>
+      <div class="highlight">Kami TIDAK mengumpulkan data sensitif seperti lokasi, kontak, kamera, atau file penyimpanan.</div>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="section">
+      <div class="section-number">03</div>
+      <h2>Cara Kami Menggunakan Data</h2>
+      <p>Data yang dikumpulkan digunakan semata-mata untuk:</p>
+      <ul>
+        <li>Mengautentikasi akun dan menjaga keamanan login pengguna</li>
+        <li>Menyimpan dan menampilkan progres serta skor kuis Anda</li>
+        <li>Menampilkan profil pengguna dalam aplikasi</li>
+        <li>Meningkatkan kualitas konten soal dan performa aplikasi</li>
+        <li>Mengirimkan notifikasi penting terkait aplikasi (jika diaktifkan)</li>
+      </ul>
+      <p style="margin-top:16px;">
+        <strong>Kami tidak menjual, menyewakan, atau membagikan data pribadi Anda kepada pihak ketiga</strong> untuk tujuan komersial.
+      </p>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="section">
+      <div class="section-number">04</div>
+      <h2>Layanan Pihak Ketiga</h2>
+      <p>SmartUQuiz menggunakan layanan berikut yang memiliki kebijakan privasi masing-masing:</p>
+      <ul>
+        <li><strong>Google Firebase Authentication:</strong> Untuk autentikasi akun dan verifikasi nomor telepon via OTP</li>
+        <li><strong>Google Firebase Realtime Database / Firestore:</strong> Untuk menyimpan data soal, skor, dan profil pengguna</li>
+        <li><strong>Google Play Services:</strong> Untuk distribusi dan pembaruan aplikasi</li>
+      </ul>
+      <p style="margin-top:16px;">
+        Layanan-layanan di atas tunduk pada <a href="https://policies.google.com/privacy" style="color:var(--accent);">Kebijakan Privasi Google</a>.
+      </p>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="section">
+      <div class="section-number">05</div>
+      <h2>Keamanan Data</h2>
+      <p>
+        Kami menerapkan langkah-langkah keamanan teknis yang wajar untuk melindungi data Anda, termasuk:
+      </p>
+      <ul>
+        <li>Transmisi data dienkripsi menggunakan protokol HTTPS/TLS</li>
+        <li>Kata sandi tidak disimpan dalam bentuk teks biasa</li>
+        <li>Akses ke database dibatasi hanya untuk sistem yang berwenang</li>
+        <li>Verifikasi nomor telepon menggunakan OTP satu kali pakai</li>
+      </ul>
+      <div class="highlight">Meski demikian, tidak ada sistem yang 100% aman. Kami terus berupaya meningkatkan keamanan aplikasi.</div>
+    </div>
+
+    <!-- Section 6 -->
+    <div class="section">
+      <div class="section-number">06</div>
+      <h2>Privasi Anak-Anak</h2>
+      <p>
+        SmartUQuiz dirancang sebagai media belajar untuk pelajar, termasuk anak-anak di bawah usia 13 tahun. Kami berkomitmen untuk mematuhi peraturan perlindungan privasi anak.
+      </p>
+      <ul>
+        <li>Kami tidak secara sengaja mengumpulkan data dari anak-anak tanpa izin orang tua</li>
+        <li>Jika orang tua/wali mengetahui bahwa anak mereka mendaftar tanpa izin, harap hubungi kami</li>
+        <li>Kami akan segera menghapus data tersebut setelah menerima permintaan yang valid</li>
+      </ul>
+    </div>
+
+    <!-- Section 7 -->
+    <div class="section">
+      <div class="section-number">07</div>
+      <h2>Hak Pengguna</h2>
+      <p>Anda memiliki hak-hak berikut terkait data pribadi Anda:</p>
+      <ul>
+        <li><strong>Akses:</strong> Melihat data pribadi yang kami simpan tentang Anda</li>
+        <li><strong>Koreksi:</strong> Memperbarui informasi yang tidak akurat melalui halaman profil</li>
+        <li><strong>Penghapusan:</strong> Meminta penghapusan akun dan seluruh data Anda</li>
+        <li><strong>Portabilitas:</strong> Meminta salinan data Anda dalam format yang dapat dibaca</li>
+      </ul>
+      <p style="margin-top:16px;">
+        Untuk menggunakan hak-hak di atas, silakan hubungi kami melalui email yang tertera di bawah.
+      </p>
+    </div>
+
+    <!-- Section 8 -->
+    <div class="section">
+      <div class="section-number">08</div>
+      <h2>Perubahan Kebijakan</h2>
+      <p>
+        Kami dapat memperbarui Kebijakan Privasi ini dari waktu ke waktu. Perubahan akan diumumkan melalui pembaruan aplikasi atau notifikasi dalam aplikasi. Tanggal "Terakhir Diperbarui" di bagian atas halaman ini akan mencerminkan revisi terbaru.
+      </p>
+      <p>
+        Penggunaan aplikasi secara berkelanjutan setelah perubahan berlaku dianggap sebagai persetujuan Anda terhadap kebijakan yang diperbarui.
+      </p>
+    </div>
+
+    <!-- Contact -->
+    <div class="contact-card">
+      <h3>📩 Hubungi Kami</h3>
+      <p>Pertanyaan, masukan, atau permintaan terkait privasi? Kami siap membantu.</p>
+      <a href="mailto:faiznaramadhani@gmail.com" class="email-link">faiznaramadhani@gmail.com</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2026 <strong>SmartUQuiz</strong> · Semua Hak Dilindungi</p>
+      <p style="margin-top:8px;">Aplikasi Kuis Edukasi untuk Pelajar Indonesia</p>
+    </footer>
+
+  </div>
+</body>
+</html>
